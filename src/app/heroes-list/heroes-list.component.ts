@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 
 @Component({
-  selector: 'app-heroe-thumbnail',
-  templateUrl: './heroe-thumbnail.component.html',
-  styleUrls: ['./heroe-thumbnail.component.scss'],
+  selector: 'app-heroes-list',
+  templateUrl: './heroes-list.component.html',
+  styleUrls: ['./heroes-list.component.scss'],
   providers: [ ApiService ]
 })
-export class HeroeThumbnailComponent implements OnInit {
-
+export class HeroesListComponent implements OnInit {
   characters: {};
 
   constructor(private client: ApiService) { }
@@ -28,5 +27,4 @@ export class HeroeThumbnailComponent implements OnInit {
         }
       );
   }
-
 }

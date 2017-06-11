@@ -18,7 +18,7 @@ export class ApiService {
     const ts = Date.now();
     const stringToHash = ts + this.privateKey + this.publicKey;
     const hash = Md5.hashStr(stringToHash);
-    return this.http.get(`${this.baseURL}characters?ts=${ts}&apikey=${this.publicKey}&hash=${hash}`)
+    return this.http.get(`${this.baseURL}characters?limit=50&ts=${ts}&apikey=${this.publicKey}&hash=${hash}`)
       .map((res: Response) => res.json().data.results)
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
