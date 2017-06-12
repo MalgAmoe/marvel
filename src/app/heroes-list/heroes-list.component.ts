@@ -8,7 +8,7 @@ import { ApiService } from '../api.service';
   providers: [ ApiService ]
 })
 export class HeroesListComponent implements OnInit {
-  characters: Array<{}> = [];
+  characters: Array<{}>;
 
   constructor(private client: ApiService) { }
 
@@ -20,11 +20,11 @@ export class HeroesListComponent implements OnInit {
     this.client.fetchCharacters()
       .subscribe(
         characters => {
-          characters.forEach(character => {
-            this.characters.push({
+          this.characters = characters.map(character => {
+            return {
               name: character.name,
               image: `${character.thumbnail.path}.${character.thumbnail.extension}`
-            });
+            };
           });
         },
         err => {
