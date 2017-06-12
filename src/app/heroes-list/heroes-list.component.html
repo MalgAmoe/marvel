@@ -1,6 +1,5 @@
 <div class="container">
-  <div *ngFor="let character of characters" class="thumbnail">
-    <img [src]="character.image">
-    <h1>{{character.name}}</h1>
+  <div *ngFor="let character of characters">
+    <app-heroes-list-item [character]="character"></app-heroes-list-item>
   </div>
 </div>
